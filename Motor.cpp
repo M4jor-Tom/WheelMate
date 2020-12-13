@@ -1,21 +1,18 @@
 #include "Motor.h"
 
-Motor::Motor(const unsigned short int &port, const float &maxVoltage, const float &maxCurrent, const float &maxPower):
-    Motor(
-        port,
-        maxVoltage,
-        maxCurrent,
-        maxPower,
-        1.0,
-        1.0,
-        1.0
-    )
+Motor::Motor(const short int &controlPort, const short int &measurePort, const unsigned short int &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower):
+    UnlinearComponent(controlPort, measurePort, maxVoltage, maxCurrent, maxPower),
+    _defaultRotation(defaultRotation),
+    _proportionnal(1.0),
+    _integral(1.0),
+    _derivate(1.0)
 {
 
 }
 
-Motor::Motor(const unsigned short int &port, const float &maxVoltage, const float &maxCurrent, const float &maxPower, const float &proportionnal, const float &integral, const float &derivate):
-    Electric(port, maxVoltage, maxCurrent, maxPower),
+Motor::Motor(const short int &controlPort, const short int &measurePort, const unsigned short int &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &proportionnal, const double &integral, const double &derivate):
+    UnlinearComponent(controlPort, measurePort, maxVoltage, maxCurrent, maxPower),
+    _defaultRotation(defaultRotation),
     _proportionnal(proportionnal),
     _integral(integral),
     _derivate(derivate),
@@ -25,7 +22,8 @@ Motor::Motor(const unsigned short int &port, const float &maxVoltage, const floa
 }
 
 Motor::Motor(const Motor& m):
-    Electric(m._port, m._maxVoltage, m._maxCurrent, m._maxPower),
+    UnlinearComponent(m._controlPort, m._measurePort, m._maxVoltage, m._maxCurrent, m._maxPower),
+    _defaultRotation(m._defaultRotation),
     _proportionnal(m._proportionnal),
     _integral(m._integral),
     _derivate(m._derivate)
@@ -39,7 +37,7 @@ Motor::~Motor()
 }
 
 
-float Motor::measureAngular() const
+double Motor::measureAngular() const
 {
     return 0.0;
 }

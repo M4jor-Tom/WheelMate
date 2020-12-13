@@ -1,15 +1,25 @@
-#include "Electric.h"
+#pragma once
 
-class Motor: public Electric
+#include "UnlinearComponent.h"
+
+class Motor: public UnlinearComponent
 {
 protected:
-    float _proportionnal, _integral, _derivate, _targetAngularSpeed;
+    double _proportionnal, _integral, _derivate, _targetAngularSpeed;
+    bool _defaultRotation;
 public:
-    Motor(const unsigned short int &port, const float &maxVoltage, const float &maxCurrent, const float &maxPower);
-    Motor(const unsigned short int &port, const float &maxVoltage, const float &maxCurrent, const float &maxPower, const float &proportionnal, const float &integral, const float &derivate);
+    //CONSTRUCTORS / DESTRUCTORS
+    Motor(const short int &controlPort, const short int &measurePort, const unsigned short int &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower);
+    Motor(const short int &controlPort, const short int &measurePort, const unsigned short int &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &proportionnal, const double &integral, const double &derivate);
     Motor(const Motor& m);
     ~Motor();
 
-    float measureAngular() const;
+    //GETTERS
+    double measureAngular() const;
     bool accelerates() const;
+
+    //CONSTANTS
+    static const unsigned short int
+        CLOCKWISE = 1,
+        COUNTERCLOCKWISE = 0;
 };

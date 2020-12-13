@@ -1,12 +1,15 @@
+#pragma once
+
 #include "Motor.h"
 
 class Wheeled: public Motor
 {
 private:
-    const float _wheelRadius;
+    const double _wheelRadius;
 public:
-    Wheeled(const unsigned short int port, const float &maxVoltage, const float &maxCurrent, const float &maxPower, const float &wheelRadius);
-    Wheeled(const unsigned short int port, const float &maxVoltage, const float &maxCurrent, const float &maxPower, const float &wheelRadius, const float &proportionnal, const float &integral, const float &derivate);
+    //CONSTRUCTORS / DESTRUCTORS
+    Wheeled(const short int &controlPort, const short int &measurePort, const bool &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &wheelRadius);
+    Wheeled(const short int &controlPort, const short int &measurePort, const bool &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &wheelRadius, const double &proportionnal, const double &integral, const double &derivate);
     Wheeled(const Wheeled& w);
     ~Wheeled();
 };
