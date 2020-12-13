@@ -1,4 +1,4 @@
-#include "../Headers/Electric.h"
+#include "Electric.h"
 
 Electric::Electric(const unsigned short int port, const float &maxVoltage, const float &maxCurrent, const float &maxPower):
     _port(port),

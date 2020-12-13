@@ -1,4 +1,4 @@
-#include "../Headers/Wheeled.h"
+#include "Wheeled.h"
 
 Wheeled::Wheeled(const unsigned short int port, const float &maxVoltage, const float &maxCurrent, const float &maxPower, const float &wheelRadius):
     Motor(port, maxVoltage, maxCurrent, maxPower),

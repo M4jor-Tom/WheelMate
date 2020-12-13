@@ -1,4 +1,4 @@
-#include "../Headers/Motor.h"
+#include "Motor.h"
 
 Motor::Motor(const unsigned short int &port, const float &maxVoltage, const float &maxCurrent, const float &maxPower):
     Motor(
@@ -8,8 +8,7 @@ Motor::Motor(const unsigned short int &port, const float &maxVoltage, const floa
         maxPower,
         1.0,
         1.0,
-        1.0,
-        0.0
+        1.0
     )
 {
 
