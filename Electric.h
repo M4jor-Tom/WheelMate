@@ -4,13 +4,13 @@ class Electric
 {
 protected:
     const double _maxVoltage, _maxCurrent, _maxPower;
-    const short int _controlPort, _measurePort;
+    const short int _controlPort, _negPort, _measurePort;
 
-    double _targetVoltage;
+    double _targetVoltage, _voltageFactor;
     bool _security;
 public:
     //CONSTRUCTORS / DESTRUCTORS
-    Electric(const short int &controlPort, const short int &measurePort, const double &maxVoltage, const double &maxCurrent, const double &maxPower);
+    Electric(const short int &controlPort, const short int &negPort, const short int &measurePort, const double &maxVoltage, const double &maxCurrent, const double &maxPower);
     Electric(const Electric &e);
     ~Electric();
 
@@ -31,6 +31,7 @@ public:
     //CONSTANTS
     static const short int
         UNSET = -1,
-        VOLTAGE = 0,
-        POWER = 1;
+        MASS = 0,
+        VOLTAGE = 1,
+        POWER = 2;
 };

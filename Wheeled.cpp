@@ -1,14 +1,14 @@
 #include "Wheeled.h"
 
-Wheeled::Wheeled(const short int &controlPort, const short int &measurePort, const bool &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &wheelRadius):
-    Motor(controlPort, measurePort, defaultRotation, maxVoltage, maxCurrent, maxPower),
+Wheeled::Wheeled(const short int &controlPort, const short int &negPort, const short int &measurePort, const bool &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &wheelRadius):
+    Motor(controlPort, negPort, measurePort, defaultRotation, maxVoltage, maxCurrent, maxPower),
     _wheelRadius(wheelRadius)
 {
 
 }
 
-Wheeled::Wheeled(const short int &controlPort, const short int &measurePort, const bool &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &wheelRadius, const double &proportionnal, const double &integral, const double &derivate):
-    Motor(controlPort, measurePort, defaultRotation, maxVoltage, maxCurrent, maxPower, proportionnal, integral, derivate),
+Wheeled::Wheeled(const short int &controlPort, const short int &negPort, const short int &measurePort, const bool &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &wheelRadius, const double &proportionnal, const double &integral, const double &derivate):
+    Motor(controlPort, negPort, measurePort, defaultRotation, maxVoltage, maxCurrent, maxPower, proportionnal, integral, derivate),
     _wheelRadius(wheelRadius)
 {
 

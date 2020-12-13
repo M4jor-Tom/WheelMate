@@ -1,7 +1,7 @@
 #include "Motor.h"
 
-Motor::Motor(const short int &controlPort, const short int &measurePort, const unsigned short int &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower):
-    UnlinearComponent(controlPort, measurePort, maxVoltage, maxCurrent, maxPower),
+Motor::Motor(const short int &controlPort, const short int &negPort, const short int &measurePort, const unsigned short int &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower):
+    UnlinearComponent(controlPort, negPort, measurePort, maxVoltage, maxCurrent, maxPower),
     _defaultRotation(defaultRotation),
     _proportionnal(1.0),
     _integral(1.0),
@@ -10,8 +10,8 @@ Motor::Motor(const short int &controlPort, const short int &measurePort, const u
 
 }
 
-Motor::Motor(const short int &controlPort, const short int &measurePort, const unsigned short int &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &proportionnal, const double &integral, const double &derivate):
-    UnlinearComponent(controlPort, measurePort, maxVoltage, maxCurrent, maxPower),
+Motor::Motor(const short int &controlPort, const short int &negPort, const short int &measurePort, const unsigned short int &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &proportionnal, const double &integral, const double &derivate):
+    UnlinearComponent(controlPort, negPort, measurePort, maxVoltage, maxCurrent, maxPower),
     _defaultRotation(defaultRotation),
     _proportionnal(proportionnal),
     _integral(integral),
@@ -22,7 +22,7 @@ Motor::Motor(const short int &controlPort, const short int &measurePort, const u
 }
 
 Motor::Motor(const Motor& m):
-    UnlinearComponent(m._controlPort, m._measurePort, m._maxVoltage, m._maxCurrent, m._maxPower),
+    UnlinearComponent(m._controlPort, m._negPort, m._measurePort, m._maxVoltage, m._maxCurrent, m._maxPower),
     _defaultRotation(m._defaultRotation),
     _proportionnal(m._proportionnal),
     _integral(m._integral),
