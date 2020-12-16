@@ -21,16 +21,6 @@ LinearComponent::~LinearComponent()
 
 }
 
-bool LinearComponent::setPower(const double &targetPower)
-{
-    return setVoltage(sqrt(targetPower * _resistance));
-}
-
-double LinearComponent::getCurrent() const
-{
-    return _targetVoltage / _resistance;
-}
-
 double LinearComponent::getResistance() const
 {
     return _resistance;

@@ -14,11 +14,8 @@ public:
     ~LinearComponent();
 
     //SETTERS
-    bool setPower(const double &targetPower) override;
-
     void setSecurity(const bool &status);
 
     //GETTERS
-    double getCurrent() const override;
     double getResistance() const;
 };

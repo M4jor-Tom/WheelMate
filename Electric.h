@@ -10,22 +10,19 @@ protected:
     bool _security;
 public:
     //CONSTRUCTORS / DESTRUCTORS
+    Electric();
     Electric(const short int &controlPort, const short int &negPort, const short int &measurePort, const double &maxVoltage, const double &maxCurrent, const double &maxPower);
     Electric(const Electric &e);
     ~Electric();
 
     //SETTERS
-    bool setVoltage(const double &targetVoltage);
-    virtual bool setPower(const double &targetPower) = 0;
-
     void setSecurity(const bool &status);
 
     //GETTERS
     bool getSecurity() const;
-    virtual double getCurrent() const = 0;
 
     //MEASURERS
-    double measureVoltage() const;
+    virtual double measureVoltage() const;
 
 
     //CONSTANTS

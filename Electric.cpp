@@ -1,6 +1,19 @@
 #include "Electric.h"
 #include "Arduino.h"
 
+Electric::Electric():
+    _controlPort(UNSET),
+    _negPort(UNSET),
+    _measurePort(UNSET),
+    _maxVoltage(0.0),
+    _maxCurrent(0.0),
+    _maxPower(0.0),
+    _voltageFactor(1.0),
+    _security(true)
+{
+
+}
+
 Electric::Electric(const short int &controlPort, const short int &negPort, const short int &measurePort, const double &maxVoltage, const double &maxCurrent, const double &maxPower):
     _controlPort(controlPort),
     _negPort(negPort),
@@ -30,23 +43,6 @@ Electric::Electric(const Electric &e):
 Electric::~Electric()
 {
 
-}
-
-bool Electric::setVoltage(const double &targetVoltage)
-{
-    bool ret = true;
-    if(targetVoltage > _maxVoltage)
-    {
-        _targetVoltage = _security
-            ? _maxVoltage
-            : targetVoltage;
-        
-        ret = false;
-    }
-    else
-        _targetVoltage = targetVoltage;
-    
-    return ret;
 }
 
 void Electric::setSecurity(const bool &status)

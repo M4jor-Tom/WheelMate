@@ -15,7 +15,7 @@ Wheeled::Wheeled(const short int &controlPort, const short int &negPort, const s
 }
 
 Wheeled::Wheeled(const Wheeled& w):
-    Motor(w._controlPort, w._measurePort, w._defaultRotation, w._maxVoltage, w._maxCurrent, w._maxPower, w._proportionnal, w._integral, w._derivate),
+    Motor(w._controlPort, w._negPort, w._measurePort, w._defaultRotation, w._maxVoltage, w._maxCurrent, w._maxPower, w._proportionnal, w._integral, w._derivate),
     _wheelRadius(w._wheelRadius)
 {
 

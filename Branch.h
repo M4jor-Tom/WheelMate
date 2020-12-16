@@ -1,9 +1,20 @@
 #include "Electric.h"
 
-class Branch
+class Branch: public Electric
 {
 private:
-    Electric *componentsPointers;   //Linked list better ?
+    Electric **componentsPointers;
 public:
-    Branch(const unsigned short int componentsCount);
+    //CONSTRUCTORS
+    Branch(const unsigned short int &componentsCount);
+
+    //GETTERS
+    double getCurrent() const;
+
+    //MEASURERS
+    double measureVoltage() const override;
+    
+    //SETTERS
+    bool setPower(const double &targetPower);
+    bool setVoltage(const double &targetVoltage);
 };
