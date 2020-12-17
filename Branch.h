@@ -3,7 +3,8 @@
 class Branch: public Electric
 {
 private:
-    Electric **componentsPointers;
+    const unsigned short int _componentsCount;
+    Electric **_componentsPointers;
 public:
     //CONSTRUCTORS
     Branch(const unsigned short int &componentsCount);
@@ -17,4 +18,7 @@ public:
     //SETTERS
     bool setPower(const double &targetPower);
     bool setVoltage(const double &targetVoltage);
+
+    bool setElectric(const Electric *e);
+    bool setElectric(const Electric *e, const unsigned short int &offset);
 };

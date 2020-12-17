@@ -1,12 +1,12 @@
 #include "Branch.h"
 
-Branch::Branch(const unsigned short int &componentsCount)
+Branch::Branch(const unsigned short int &componentsCount): _componentsCount(componentsCount)
 {
-    componentsPointers = new Electric*[componentsCount];
+    _componentsPointers = new Electric*[componentsCount];
 
     unsigned short int i;
     for(i = 0; i < componentsCount; i++)
-        componentsPointers[i] = nullptr;
+        _componentsPointers[i] = nullptr;
 }
 
 double Branch::getCurrent() const
@@ -40,4 +40,30 @@ bool Branch::setVoltage(const double &targetVoltage)
 double Branch::measureVoltage() const
 {
     return 0.0;
+}
+
+bool Branch::setElectric(const Electric *e)
+{
+    unsigned short int i;
+    for(i = 0; i < _componentsCount; i++)
+        if(_componentsPointers[i] == NULL)
+        {
+            _componentsPointers[i] = e;
+            return true;
+        }
+    
+    return false;
+}
+
+bool Branch::setElectric(const Electric *e, const unsigned short int &offset)
+{
+    unsigned short int i;
+    for(i = 0; i < _componentsCount; i++)
+        if(_componentsPointers[i] == NULL && i == offset)
+        {
+            _componentsPointers[i] = e;
+            return true;
+        }
+    
+    return false;
 }
