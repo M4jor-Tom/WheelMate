@@ -1,6 +1,6 @@
 #include "UnlinearComponent.h"
 
-UnlinearComponent::UnlinearComponent(const short int &controlPort, const short int &negPort, const short int &measurePort, const short int &negMeasurePort, const double &maxVoltage, const double &maxCurrent, const double &maxPower):
+UnlinearComponent::UnlinearComponent(csi &controlPort, csi &negPort, csi &measurePort, csi &negMeasurePort, const double &maxVoltage, const double &maxCurrent, const double &maxPower):
     Electric(controlPort, negPort, measurePort, negMeasurePort, maxVoltage, maxCurrent, maxPower)
 {
 

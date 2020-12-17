@@ -1,6 +1,6 @@
 #include "Motor.h"
 
-Motor::Motor(const short int &controlPort, const short int &negPort, const short int &measurePort, const short int &negMeasurePort, const unsigned short int &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower):
+Motor::Motor(csi &controlPort, csi &negPort, csi &measurePort, csi &negMeasurePort, const unsigned short int &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower):
     UnlinearComponent(controlPort, negPort, measurePort, negMeasurePort, maxVoltage, maxCurrent, maxPower),
     _defaultRotation(defaultRotation),
     _proportionnal(1.0),
@@ -10,7 +10,7 @@ Motor::Motor(const short int &controlPort, const short int &negPort, const short
 
 }
 
-Motor::Motor(const short int &controlPort, const short int &negPort, const short int &measurePort, const short int &negMeasurePort, const unsigned short int &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &proportionnal, const double &integral, const double &derivate):
+Motor::Motor(csi &controlPort, csi &negPort, csi &measurePort, csi &negMeasurePort, const unsigned short int &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &proportionnal, const double &integral, const double &derivate):
     UnlinearComponent(controlPort, negPort, measurePort, negMeasurePort, maxVoltage, maxCurrent, maxPower),
     _defaultRotation(defaultRotation),
     _proportionnal(proportionnal),

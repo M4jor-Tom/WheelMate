@@ -2,7 +2,7 @@
 #include <math.h>
 
 
-LinearComponent::LinearComponent(const short int &controlPort, const short int &negPort, const short int &measurePort, const short int &negMeasurePort, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &resistance):
+LinearComponent::LinearComponent(csi &controlPort, csi &negPort, csi &measurePort, csi &negMeasurePort, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &resistance):
     Electric(controlPort, negPort, measurePort, negMeasurePort, maxVoltage, maxCurrent, maxPower),
     _resistance(resistance)
 {

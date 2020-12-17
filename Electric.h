@@ -1,17 +1,23 @@
 #pragma once
 
+typedef unsigned short int usi;
+typedef const unsigned short int cusi;
+
+typedef short int si;
+typedef const short int csi;
+
 class Electric
 {
 protected:
     const double _maxVoltage, _maxCurrent, _maxPower;
-    const short int _controlPort, _negPort, _measurePort, _negMeasurePort;
+    csi _controlPort, _negPort, _measurePort, _negMeasurePort;
 
     double _targetVoltage, _voltageFactor;
     bool _security;
 public:
     //CONSTRUCTORS / DESTRUCTORS
     Electric();
-    Electric(const short int &controlPort, const short int &negPort, const short int &measurePort, const short int &negMeasurePort, const double &maxVoltage, const double &maxCurrent, const double &maxPower);
+    Electric(csi &controlPort, csi &negPort, csi &measurePort, csi &negMeasurePort, const double &maxVoltage, const double &maxCurrent, const double &maxPower);
     Electric(const Electric &e);
     ~Electric();
 
@@ -22,15 +28,21 @@ public:
 
     //GETTERS
     bool getSecurity() const;
+    si getPort(csi &port) const;
 
     //MEASURERS
     virtual double measureVoltage() const;
 
 
     //CONSTANTS
-    static const unsigned short int
+    static csi
+        ERROR = -2,
         UNSET = -1,
         MASS = 0,
         VOLTAGE = 1,
-        POWER = 2;
+        POWER = 2,
+        PPORT = 3,
+        NPORT = 4,
+        PMPORT = 5,
+        NMPORT = 6;
 };

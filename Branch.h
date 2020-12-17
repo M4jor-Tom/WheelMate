@@ -1,16 +1,19 @@
+#pragma once
+
 #include "Electric.h"
 
 class Branch: public Electric
 {
 private:
-    const unsigned short int _componentsCount;
+    cusi _componentsCount;
     Electric **_componentsPointers;
 public:
     //CONSTRUCTORS
-    Branch(const unsigned short int &componentsCount);
+    Branch(cusi &componentsCount);
 
     //GETTERS
     double getCurrent() const;
+    Electric *getElectric(cusi &offset) const;
 
     //MEASURERS
     double measureVoltage() const override;
@@ -19,6 +22,6 @@ public:
     bool setPower(const double &targetPower);
     bool setVoltage(const double &targetVoltage);
 
-    bool setElectric(const Electric *e);
-    bool setElectric(const Electric *e, const unsigned short int &offset);
+    bool setElectric(Electric *e);
+    bool setElectric(Electric *e, cusi &offset);
 };

@@ -1,13 +1,13 @@
 #include "Wheeled.h"
 
-Wheeled::Wheeled(const short int &controlPort, const short int &negPort, const short int &measurePort, const short int &negMeasurePort, const unsigned short int &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &wheelRadius):
+Wheeled::Wheeled(csi &controlPort, csi &negPort, csi &measurePort, csi &negMeasurePort, const unsigned short int &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &wheelRadius):
     Motor(controlPort, negPort, measurePort, negMeasurePort, defaultRotation, maxVoltage, maxCurrent, maxPower),
     _wheelRadius(wheelRadius)
 {
 
 }
 
-Wheeled::Wheeled(const short int &controlPort, const short int &negPort, const short int &measurePort, const short int &negMeasurePort, const unsigned short int &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &wheelRadius, const double &proportionnal, const double &integral, const double &derivate):
+Wheeled::Wheeled(csi &controlPort, csi &negPort, csi &measurePort, csi &negMeasurePort, const unsigned short int &defaultRotation, const double &maxVoltage, const double &maxCurrent, const double &maxPower, const double &wheelRadius, const double &proportionnal, const double &integral, const double &derivate):
     Motor(controlPort, negPort, measurePort, negMeasurePort, defaultRotation, maxVoltage, maxCurrent, maxPower, proportionnal, integral, derivate),
     _wheelRadius(wheelRadius)
 {

@@ -1,6 +1,6 @@
 #include "Branch.h"
 
-Branch::Branch(const unsigned short int &componentsCount): _componentsCount(componentsCount)
+Branch::Branch(cusi &componentsCount): _componentsCount(componentsCount)
 {
     _componentsPointers = new Electric*[componentsCount];
 
@@ -12,6 +12,14 @@ Branch::Branch(const unsigned short int &componentsCount): _componentsCount(comp
 double Branch::getCurrent() const
 {
     return 0.0;
+}
+
+Electric *Branch::getElectric(cusi &offset) const
+{
+    if(offset > _componentsCount)
+        return nullptr;
+
+    return _componentsPointers[offset];
 }
 
 bool Branch::setPower(const double &targetPower)
@@ -42,11 +50,11 @@ double Branch::measureVoltage() const
     return 0.0;
 }
 
-bool Branch::setElectric(const Electric *e)
+bool Branch::setElectric(Electric *e)
 {
     unsigned short int i;
     for(i = 0; i < _componentsCount; i++)
-        if(_componentsPointers[i] == NULL)
+        if(_componentsPointers[i] == nullptr)
         {
             _componentsPointers[i] = e;
             return true;
@@ -55,11 +63,11 @@ bool Branch::setElectric(const Electric *e)
     return false;
 }
 
-bool Branch::setElectric(const Electric *e, const unsigned short int &offset)
+bool Branch::setElectric(Electric *e, cusi &offset)
 {
     unsigned short int i;
     for(i = 0; i < _componentsCount; i++)
-        if(_componentsPointers[i] == NULL && i == offset)
+        if(_componentsPointers[i] == nullptr && i == offset)
         {
             _componentsPointers[i] = e;
             return true;
